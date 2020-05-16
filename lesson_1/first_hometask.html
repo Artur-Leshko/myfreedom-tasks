@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hometask_1</title>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            // First task
+
+            console.log ("Первое задание: ");
+
+            let a = 10, b = 15;
+            if (a > b) {
+                console.log (a);
+            } else if (b > a) {
+                console.log (b);
+            } else {
+                console.log ("Значения равны между собой!");
+            }
+
+            // Second task
+            
+            // (2.2) Функция создания массива из квадратов его элементов
+            function createArray() {
+                let result = [];
+
+                for (let i = 0; i < 100; i++){
+                    result[i]= i ** 2;
+                }
+
+                return result;
+            }
+
+            // (2.3) Функиця подсчёта суммы элементов массива
+            function sum(array) {
+                let result = 0;
+
+                for (let i = 0; i < array.length; i++) {
+                    result += array[i];
+                }
+
+                return result;
+            }
+
+            console.log ("Второе задание: ");
+
+            // let result = "";
+            let array1 = [];
+
+            // for (let i = 0; i < 100; i++) {   // (2) Квадраты чисел от 0 до 100 
+            //     // array[i] = i ** 2;         // (2.1) Формировка массива из этих чисел
+            //     result += String (i ** 2) + ", ";
+            // }
+            // console.log (result);
+
+            array1 = createArray();
+            
+            console.log (sum(array1));
+
+            // Third task
+
+            console.log ("Третье задание: ");
+            
+            let i = 0;
+            let array2 = [];
+            let sumOfElements = 0; 
+
+            while (i != 100) {
+                array2[i] = i ** 2;
+
+                sumOfElements +=array2[i];
+
+                i++;
+            }
+
+            console.log (sumOfElements);
+
+            // Fourth task
+
+            alert ("Четвёртое задание");
+
+            function fillArray() {
+                let result = [];
+
+                for (let i = 0; i < 5; i++) {
+                    result[i] = prompt ("Введите сколько диванов сделал " + String(i + 1) + " рабочий за месяц!");
+                }
+
+                return result;
+            }
+
+            function calcSalary(array) {
+                let result;
+                const oklad = 1000;
+
+                for (let i = 0; i < 5; i++) {
+                    result = oklad + oklad * 0.1 * array[i];
+                    console.log (String(i + 1) + " рабочий получил " + result + " за этот месяц.");
+                }
+
+            }
+
+            console.log ("Четвёртое задание: ");
+
+            console.log ("На заводе про производству диванов работает 5 сотрудников.");
+            console.log ("В зависимости от количества произведенных за месяц диванов, каждый сотрудник получает зарплату: оклад(1000) + 10% от оклада за каждый диван.");
+            console.log ("Посчитать зарплату каждого сотрудника!");
+
+            let amountOfSofas = fillArray();
+            calcSalary(amountOfSofas);
+
+            // Sixth task
+
+            alert ("Шестое задание");
+
+            console.log ("Шестое задание: ");
+
+            function isStringFolindrome(palindrome_string) {
+                let trigger = true;
+                let newString = [];
+                let newLength = 0;
+
+                for (let i = 0; i < palindrome_string.length; i++) {    // Объединяем строку в одно "слово" без пробелов
+                    if (palindrome_string[i] != ' ') {
+                        newString[newLength] = palindrome_string[i];
+                        newLength++;
+                    }
+                }
+
+                for (let i = 0; i < newLength; i++) {                  // Проверка строки на "палиндромность"
+                    if (newString[i] != newString[newLength - 1 - i]) {
+                        trigger = false;
+                        break;
+                    } else if (newLength/2 < i) {
+                        break;
+                    }
+                }
+
+                return trigger;
+            }
+
+            let palindrome = prompt("Введите строку для проверки на палиндром!");
+            
+            if (isStringFolindrome(palindrome)) {
+                console.log ("Строка является палиндромом!");
+            } else {
+                console.log ("Строка палиндромом не является!");
+            }
+
+        </script>
+    </body>
+</html>
