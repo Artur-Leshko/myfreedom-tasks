@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            //  Task 1
+            console.log ("Первое задание:");
+
+            function findPositiveNumbers(array) {
+                let arr = [];
+
+                for (let i = 0, j = 0; i < array.length; i++) {
+                    if (array[i] >= 0 ) {
+                        arr[j] = array[i];
+                        j++;
+                    }
+                }
+
+                return arr;
+            }
+
+            let first_array = [5, 4, 3, -3, -10, -1, 8, -20, 0];
+            let first_result = "";
+
+            for (element of first_array) {
+                first_result += String(element) + ", ";
+            }
+            console.log (first_result);
+
+            first_array = findPositiveNumbers(first_array);
+            first_result = "";
+
+            for (element of first_array) {
+                first_result += String(element) + ", ";
+            }
+            console.log (first_result);
+
+            // Task 2
+            console.log ("Второе задание:");
+
+            function filterFor(array, a) {
+                let arr = [];
+
+                for (let i = 0, j = 0; i < array.length; i++) {
+                    if (array[i] >= a) {
+                        arr[j] = array[i];
+                        j++;
+                    }
+                }
+
+                return arr;
+            }
+
+            let second_array = [5, 4, 3, 8, 0]
+            let number = 8;
+            let second_result = "";
+
+            for (element of second_array) {
+                second_result += String(element) + ", ";
+            }
+            console.log (second_result);
+
+            second_array = filterFor(second_array, number);
+            second_result = "";
+
+            if (second_array.length === 0) {
+                second_result = "[]";
+            } else {
+                for (element of second_array) {
+                    second_result += String(element) + ", ";
+                }
+            }
+            console.log (second_result);
+
+        </script>
+    </body>
+</html>
