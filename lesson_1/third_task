@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            // Task 1
+            console.log("Первое задание:");
+
+            let user = {};
+            let name = prompt("Введите своё имя");
+            let age = prompt("Введите ваш возраст");
+
+            user.name = name;
+            user.age = age;
+
+            console.log(user.name);
+            console.log(user.age);
+
+            // Task 2
+
+            console.log("Второе задание:");
+
+            function isAdult(element) {
+                return element.age >= 18;
+            }
+
+            function sUsers(element) {
+                return (element.name[0] == "S" || element.name[0] == "s");
+            }
+
+            function adult(array, func) {
+                let new_array = [];
+
+                for(let element of array) {
+                    if(func(element)) {
+                        new_array[new_array.length] = element.name;
+                    }
+                }
+
+                return new_array;
+            }
+
+            let users = [{ name: "Artur", age: 18 }, { name: "Gleb", age: 17 }, { name: "Artem", age: 20 }, { name: "Alexandr", age: 15 }, { name: "Sergey", age: 35 }];
+            let adult_users = [];
+            let s_users = [];
+
+            adult_users = adult(users, isAdult);
+            console.log(adult_users);
+
+            s_users = adult(users, sUsers);
+            console.log(s_users);
+
+            // Task 3
+
+            console.log("Третье(0) задание:");
+
+            let animal_1 = { name: "cat", age: 3, weight: 500 };
+            animal_1.big = function(weight) {
+                return weight > 500;
+            }
+
+            console.log(String(animal_1.weight) + " - " + String(animal_1.big()));
+
+            // Task 3.1
+
+            console.log("Третье(1) задание:");
+
+            function Big(name, age, weight) {
+                this.name = name;
+                this.age = age;
+                this.weight = weight;
+                this.big = weight > 500 ? true : false;
+            }
+
+            let animal_2 = new Big("dog", 6, 700);
+
+            console.log(String(animal_2.name) + " " + String(animal_2.age) + " " + String(animal_2.weight) + " - " + String(animal_2.big));
+
+        </script>
+    </body>
+</html>
