@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script type = "text/javascript">
+            // Task 1 
+            function addElement(tag, className, content) {
+                let element = document.createElement(String(tag));
+
+                element.setAttribute('class', String(className));
+                element.textContent = String(content);
+                return element;
+            }
+
+            // Task 2
+            let bodyFind = document.querySelector('body');
+            let element = addElement('p', 'first-paragraph', 'Всем привет, меня зовут Артур!');
+
+            element.style.fontSize = '36px';
+            element.style.fontWeight = 'bold';
+
+            bodyFind.appendChild(element);
+
+            // Task 3
+            
+            let selectionElement = addElement('select', 'select-year', 'Выберите свой год рождения!');
+
+            selectionElement.style.width = '400px';
+            selectionElement.style.height = '30px';
+
+            bodyFind.appendChild(selectionElement);
+            let selectFind = document.querySelector('select');
+
+            for (let i = 1960; i <= 2020; i++) {
+                let newOption = addElement('option', '', String(i));
+                selectFind.appendChild(newOption);
+            }
+            
+            // Task 4
+
+            let people = [{ name: "Женя", order: true }, { name: "Кристина", order: true }, { name: "Павел", order: false }, { name: "Виолетта", order: false }, { name: "Костя", order: true }]; 
+            let ulElement = addElement('ul', 'listOfPeople', '');
+
+            bodyFind.appendChild(ulElement);
+            let ulFind = document.querySelector('ul');
+
+            for(let i = 0; i < people.length; i++) {
+                let newLi;
+                if(people[i].order == true) {
+                    let result = 'Клиент ' + people.name + ' опалитл заказ';
+                    newLi = addElement('li', '', result);
+                    ulFind.appendChild(newLi);
+                } else {
+                    let result = 'Клиент ' + people.name + ' отменил заказ';
+                    newLi = addElement('li', '', result);
+                    ulFind.appendChild(newLi);
+                }
+            }
+
+        </script>
+    </body>
+</html>
