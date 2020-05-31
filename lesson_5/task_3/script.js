@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         li.textContent = inputValue;
 
         ul.appendChild(li);
+        document.querySelector('.text').value = "";
     }
 
     let form = document.querySelector('form');
