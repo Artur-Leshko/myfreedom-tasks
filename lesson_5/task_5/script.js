@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function mouseLeave(event) {
         let button = document.querySelector('button');
-        button.style.rotate(generateAngle(-180, 180));
+        button.style.transform = `rotate(${generateAngle(-180, 180)}deg)`;
     }
 
     function geneateColor() {                                           // метод .floor округляет дробное число до наименьшего целого
