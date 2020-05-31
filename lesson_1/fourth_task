@@ -52,11 +52,11 @@
             for(let i = 0; i < people.length; i++) {
                 let newLi;
                 if(people[i].order == true) {
-                    let result = 'Клиент ' + people.name + ' опалитл заказ';
+                    let result = 'Клиент ' + people[i].name + ' опалитл заказ';
                     newLi = addElement('li', '', result);
                     ulFind.appendChild(newLi);
                 } else {
-                    let result = 'Клиент ' + people.name + ' отменил заказ';
+                    let result = 'Клиент ' + people[i].name + ' отменил заказ';
                     newLi = addElement('li', '', result);
                     ulFind.appendChild(newLi);
                 }
