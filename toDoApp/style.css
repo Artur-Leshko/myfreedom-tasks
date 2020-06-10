@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    padding: 50px 0;
+    background-color: #04295c;
+}
+
+form {
+    text-align: center;
+}
+
+.input__goal {
+    padding: 5px 8px;
+
+    color: #fff;
+    background-color: transparent;
+
+    border: none;
+    border: 2px solid #0a5ac9;
+    border-radius: 5px;
+
+    outline: none;
+    transition: linear 0.25s;
+}
+
+.input__goal:focus {
+    border-color: #11b806;
+}
+
+.add__button {
+    padding: 5px 8px;
+    margin-left: 10px;
+
+    color: #fff;
+    font-size: 16px;
+    background-color: transparent;
+
+    border: none;
+    border: 2px solid #11b806;
+    border-radius: 5px;
+
+    outline: none;
+    transition: linear 0.25s;
+}
+
+.add__button:hover {
+    background-color: #11b806;
+}
+
+.mark__all {
+    padding: 5px 8px;
+
+    color: white;
+    font-size: 16px;
+    background-color: transparent;
+
+    border: none;
+    border: 2px solid yellow;
+    border-radius: 10px;
+
+    outline: none;
+    transition: linear 0.25s;
+}
+
+.mark__all:hover {
+    color: #04295c;
+    background-color: yellow;
+}
+
+ul {
+    padding-top: 30px;
+    list-style: none;
+}
+
+ul li {
+    padding-top: 10px;
+
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+input[placeholder]          {text-overflow:ellipsis;}
+input::-moz-placeholder     {text-overflow:ellipsis;} 
+input:-moz-placeholder      {text-overflow:ellipsis;} 
+input:-ms-input-placeholder {text-overflow:ellipsis;}    
+
+::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 13px;
+    transition: linear 0.2s;
+}
+
+::-moz-placeholder {
+    color: #fff;
+    font-size: 13px;
+    transition: linear 0.2s;
+}
+
+:-moz-placeholder {
+    color: #fff;
+    font-size: 13px;
+    transition: linear 0.2s;
+}
+
+:-ms-input-placeholder {
+    color: #fff;
+    font-size: 13px;
+    transition: linear 0.2s;
+}
+
+.input__goal:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.input__goal:focus::-moz-placeholder {
+    color: transparent;
+}
+
+.input__goal:focus:-moz-placeholder {
+    color: transparent;
+}
+
+.input__goal:focus:-ms-input-placeholder {
+    color: transparent;
+}
