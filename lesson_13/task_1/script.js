@@ -16,9 +16,9 @@ function makeExchange(money) {
 let money = Number(prompt("Введите количетсво денег!"));
 let devidedMoney = {};
 
-devidedMoney = makeExchange(money);
+dividedMoney = makeExchange(money);
 
 console.log(`Для ${money}: `);
-for (let element in devidedMoney) {
-    console.log(`${element}: ${devidedMoney[element]}`);
+for (let element in dividedMoney) {
+    console.log(`${element}: ${dividedMoney[element]}`);
 }
