@@ -3,10 +3,10 @@ import PetItem from './PetItem';
 
 function PetsList(props) {
     return(
-        <ul>
+        <ul className="petsList">
             { props.items.map(item => {
                 return <PetItem item={item} />
-            }) }           
+            }) }
         </ul>
     )
 }
