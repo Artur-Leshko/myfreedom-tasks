@@ -30,6 +30,8 @@ form {
     background: transparent;
 
     outline: none;
+
+    -webkit-user-select: none;
 }
 
 .submitButton {
@@ -47,4 +49,6 @@ form {
     
     outline: none;
     cursor: pointer;
+
+    -webkit-user-select: none;
 }

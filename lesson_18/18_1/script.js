@@ -1,4 +1,4 @@
-class AddSticker {
+class StickerBuilder {
     constructor(value) {
         this.value = value;
     }
@@ -42,22 +42,20 @@ class AddSticker {
 
     addSticker() {
         let sticker = this._createSticker();
-        let temprorySticker;
-        
+
         sticker.addEventListener('mousedown', function(event) {
-            temprorySticker = sticker;
+            let x = event.offsetX == undefined ? event.layerX : event.offsetX;
+            let y = event.offsetY == undefined ? event.layerY : event.offsetY;
+            sticker.addEventListener('mousemove', function(event) {
+                sticker.style.top = `${(undefined ? event.layerY : event.offsetY) - y}px`;
+                sticker.style.left = `${(undefined ? event.layerX : event.offsetX) - x}px`;
+            });
         });
 
-        sticker.addEventListener('mousemove', function(event) {
-            if(temprorySticker){
-                sticker.style.top = `${event.clientX}px`;
-                sticker.style.left = `${event.clientY}px`;
-            }
-        })
-
         sticker.addEventListener('mouseup', function(event) {
-            sticker = temprorySticker;
-            temprorySticker = null;
+            sticker.removeEventListener('mousemove', function(event) {
+                
+            });
         });
 
         document.body.appendChild(sticker);
@@ -68,7 +66,7 @@ let form = document.querySelector('form');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
-    let newSticker = new AddSticker(document.querySelector('.inputTask').value);
+    let newSticker = new StickerBuilder(document.querySelector('.inputTask').value);
     document.querySelector('.inputTask').value = '';
     newSticker.addSticker();
 });
