@@ -6,33 +6,37 @@ let restart = document.querySelector('.restart');
 let scaleX = -1;
 let trigger = false;
 let counter = 0;
-let seconds = 60;
 
-timer = setInterval(function() {
+function timer(seconds) {
+    newTimer = setInterval(function() {
 
-    if(seconds <= 0) {
-        trigger = false;
-        time.textContent = '0';
-        document.querySelector('.end_game__status').textContent = 'Поражение!';
-        document.querySelector('.end_game').style.display = 'flex';
-    } else {
-        if(counter === 5) {
+        if(seconds <= 0) {
+            clearInterval(newTimer);
             trigger = false;
-            time.textContent = '0';
-            document.querySelector('.end_game__status').textContent = 'Победа!';
+            time.textContent = `${seconds}`
+            document.querySelector('.end_game__status').textContent = 'Поражение!';
             document.querySelector('.end_game').style.display = 'flex';
             return 0;
+        } else {
+            if(counter >= 5) {
+                clearInterval(newTimer);
+                trigger = false;
+                time.textContent = '0';
+                document.querySelector('.end_game__status').textContent = 'Победа!';
+                document.querySelector('.end_game').style.display = 'flex';
+                return 0;
+            }
+    
+            time.textContent = `${seconds}`;
         }
-
-        time.textContent = `${seconds}`;
-    }
-
-    seconds--;
-}, 1000);
+    
+        seconds--;
+    }, 1000);
+} 
 
 start.addEventListener('click', function(event) {
     trigger = true;
-    timer;
+    timer(60);
     event.target.remove();
 });
 
@@ -62,8 +66,7 @@ duck.addEventListener('mousemove', function(event) {
 
 restart.addEventListener('click', function(event) {
     trigger = true;
-    seconds = 60;
-    timer;
+    timer(60);
     document.querySelector('.end_game').style.display = 'none';
     counter = 0;
     document.querySelector('.counter').textContent = counter;
