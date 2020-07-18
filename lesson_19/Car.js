@@ -1,4 +1,6 @@
-export default class Car {
+import AutoRepairShop from './AutoRepairShop.js';
+
+export default class Car extends AutoRepairShop {
     constructor(type){
         this.type = type;
     }
