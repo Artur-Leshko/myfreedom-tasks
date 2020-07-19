@@ -4,6 +4,7 @@ import Truck from './Truck.js';
 import Worker from './Worker.js';   
 import PassengerCarWorker from './passengerCarWorker.js';
 import TruckWorker from './truckWorker.js';
+//import Worker from './Worker.js';      Это твоё задание :))
 //незабудь что нужно запускать всю эту штуку через консоль командой: "npx serve"
 
 export default class AutoRepairShop {
@@ -27,3 +28,4 @@ export default class AutoRepairShop {
         return worker;
     }
 }
+
