@@ -10,12 +10,14 @@
             import AutoRepairShop from './AutoRepairShop.js'
 
             let repairShop = new AutoRepairShop();
-            let car = repairShop.carDrivesIn('легковой');
+            let car = repairShop.carDrivesIn('грузовой');
+            let worker = repairShop.workerInRepairShop('грузовой');
 
             car.getTypeOfCar();
             car.carRepairing();
             car.carFillingUp();
-
+            worker.fillUp();
+            worker.repair();
         </script>
     </body>
 </html>

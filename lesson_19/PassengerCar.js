@@ -9,5 +9,4 @@ class PassengerCar extends Car {
         console.log(`${this.type} автомобиль для заправки требует бензин высшего класса(не разбираюсь в машинах:))!`);
     }
 }
-
 export default PassengerCar;
