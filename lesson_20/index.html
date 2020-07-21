@@ -25,8 +25,8 @@
             function map(array, funct) {
                 let new_array = [];
 
-                for (let element in array) {
-                    new_array.push(funct(element));
+                for (let element of array) {
+                    new_array[new_array.length] = funct(element);
                 }
 
                 return new_array;
