@@ -1,0 +1,18 @@
+.list li {
+    padding-bottom: 10px;
+}
+
+.money-div {
+    font-size: 17px;
+    font-weight: 600;
+
+    color: black;
+
+    padding-bottom: 5px;
+}
+
+.products-div {
+    font-size: 15px;
+
+    color: black;
+}

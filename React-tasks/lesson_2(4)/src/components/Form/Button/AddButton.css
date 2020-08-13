@@ -1,0 +1,21 @@
+.add-button {
+    width: 10%;
+    padding: 5px;
+    margin-left: 10px;
+
+    font-size: 18px;
+
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: linear 0.1s;
+}
+
+.add-button:hover {
+    color: white;
+    background-color: black;
+}

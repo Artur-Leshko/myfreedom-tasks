@@ -1,0 +1,17 @@
+.navbar {
+    margin: 10px 5px;
+}
+
+.navbar a {
+    margin-left: 10px;
+    padding: 5px 7px;
+
+    color: black;
+
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
