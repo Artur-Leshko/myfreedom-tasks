@@ -1,0 +1,106 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+header {
+  padding: 20px 0 30px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+li {
+  margin-bottom: 10px;
+
+  font-size: 18px;
+}
+
+.film-info {
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+
+  border: 2px solid black;
+}
+
+form {
+  width: 20%;
+  margin: 0 auto;
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form input, form select {
+  width: 100%;
+  margin-bottom: 15px;
+
+  padding: 6px 8px;
+  color: black;
+  font-size: 16px;
+}
+
+.after-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.after-header select {
+  padding: 8px 10px;
+
+  font-size: 17px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
