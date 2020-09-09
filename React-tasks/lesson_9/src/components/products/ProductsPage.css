@@ -1,0 +1,16 @@
+.product {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product__cost, .product__description, .product__category {
+    margin-bottom: 8px;
+}
+
+.delete-btn {
+    margin-left: 8px
+}
+
+Link {
+    text-decoration: none;
+}
