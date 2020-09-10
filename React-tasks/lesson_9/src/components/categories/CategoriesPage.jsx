@@ -3,6 +3,7 @@ import { firestore } from '../../firestore';
 import { Link, Route, Switch } from 'react-router-dom';
 import { CategoryiesForm } from './CategoriesForm';
 import { ProductsPage } from '../products/ProductsPage';
+import { collectionToObject } from '../../firestore';
 
 function addCategory(obj) {
     firestore.collection('/categories').add(obj);
@@ -14,6 +15,9 @@ function updateCategory(fields, categoryId) {
 
 function deleteCategory(categoryId) {
     firestore.collection('/categories').doc(categoryId).delete();
+    firestore.collection('/bookkeeping').where('category', '==', categoryId).get().then(collectionToObject).then(docs => {
+        docs.map(doc => firestore.collection('/bookkeeping').doc(doc.id).delete());
+    });
 }
 
 export class CategoryPage extends React.Component {
