@@ -18,6 +18,7 @@ export class ProductsForm extends React.Component {
                         <input type='number' value={this.state.cost} placeholder='Расходы' onChange={(e) => this.setState({ cost: e.target.value })}></input>
                         <textarea value={this.state.description} placeholder='На что ушли деньги' onChange={(e) => this.setState({ description: e.target.value })}></textarea>
                         <select value={categories.find(category => category.id === this.state.category)?.name || this.state.category} onChange={(e) => this.setState({ category: categories.find(category => category.name === e.target.value).id })}>
+                            {(this.state.category === '') && <option selected='selected'>Выберите категорию</option>}
                             {categories ?
                                 categories.map(category => (
                                     <option key={category.name} value={category.name}>{category.name}</option>
