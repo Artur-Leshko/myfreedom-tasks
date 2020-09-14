@@ -4,11 +4,11 @@ import { ProductsForm } from './ProductsForm';
 import { Link, Route, Switch } from 'react-router-dom';
 import './ProductsPage.css';
 
-function addProduct(obj) {
-    firestore.collection('/bookkeeping').add(obj);
+function addProduct(obj, userId) {
+    firestore.collection('/bookkeeping').add({ ...obj, userId: userId });
 }
 
-function updateProduct(fields, productId) {
+function updateProduct(fields, userId, productId) {
     firestore.collection('/bookkeeping').doc(productId).update(fields);
 }
 
@@ -20,20 +20,27 @@ export class ProductsPage extends React.Component {
     state = {
         products: null,
         error: null,
+        isLoading: true
     }
 
     componentDidMount() {
         try {
-            firestore.collection('/bookkeeping').where('category', '==', this.props.category.id).onSnapshot(snapshot => {
+            this.subscribe = firestore.collection('/bookkeeping').where('category', '==', this.props.category.id).where('userId', '==', this.props.userId).onSnapshot(snapshot => {
                 this.setState({ products: collectionToObject(snapshot) });
             });
         } catch(e) {
             this.setState({ error: e });
+        } finally {
+            this.setState({ isLoading: false });
         }
     }
 
+    componentWillUnmount() {
+        this.subscribe();
+    }
+
     render() {
-        if(!this.state.products) {
+        if(this.state.isLoading) {
             return <div>...Грузим расходы...</div>
         }
 
@@ -51,7 +58,7 @@ export class ProductsPage extends React.Component {
                         </button>
                     </Link>
                     <button onClick={() => this.props.history.push('/categories')}>Назад</button>
-                    {this.state.products.length ?
+                    {this.state.products ?
                         <ol>
                             {this.state.products.map(product => (
                                 <li key={product.id}>
@@ -75,12 +82,12 @@ export class ProductsPage extends React.Component {
                 <Switch>
                     <Route path={`/categories/${this.props.category.id}/expenses/add`}>
                         {({history}) => (
-                            <ProductsForm history={() => history.push(`/categories/${this.props.category.id}/expenses`)} onSave={addProduct} />
+                            <ProductsForm history={() => history.push(`/categories/${this.props.category.id}/expenses`)} onSave={addProduct} userId={this.props.userId} />
                         )}
                     </Route>
                     <Route path={`/categories/${this.props.category.id}/expenses/:productId`}>
                         {({ history, match: { params: { productId } } }) => (
-                            <ProductsForm history={() => history.push(`/categories/${this.props.category.id}/expenses`)} onSave={updateProduct} product={this.state.products.find(product => product.id === productId)} />
+                            <ProductsForm history={() => history.push(`/categories/${this.props.category.id}/expenses`)} onSave={updateProduct} product={this.state.products?.find(product => product.id === productId)} />
                         )}
                     </Route>
                 </Switch>

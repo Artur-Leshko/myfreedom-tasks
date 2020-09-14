@@ -44,3 +44,9 @@ ol li {
 a {
   text-decoration: none;
 }
+
+.welcome {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}

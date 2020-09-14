@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
 import { CategoryConsumer } from '../../context';
 import './ProductsForm.css'
 
@@ -27,7 +26,7 @@ export class ProductsForm extends React.Component {
                             }
                         </select>
                         <button onClick={() => {
-                            this.props.onSave(this.state, this.props.product?.id);
+                            this.props.onSave(this.state, this.props.userId, this.props.product?.id);
                             this.props.history();
                         }}>
                             Сохранить

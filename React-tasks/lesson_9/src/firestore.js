@@ -12,6 +12,7 @@ const app = initializeApp({
 });
 
 export const firestore = app.firestore();
+export const auth = app.auth();
 
 export function docToObject(doc) {
     return {
@@ -23,3 +24,5 @@ export function docToObject(doc) {
 export function collectionToObject(collection) {
     return collection.docs.map(docToObject);
 }
+
+window.firestore = firestore;
